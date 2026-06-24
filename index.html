@@ -128,11 +128,18 @@
       const avg2 = localStorage.getItem("finalAverage2");
       if (avg2) document.getElementById("finalResult2").innerText = "Final Semester Average: " + avg2;
 
+      if(tableId === 1){
       if (avg1 && avg2) {
         const annual = ((parseFloat(avg1) + parseFloat(avg2)) / 2).toFixed(2);
         document.getElementById("finalResult").innerText = "Final Annual Average: " + annual;
         localStorage.setItem("finalAverage", annual);
-      }
+      }}
+      else{ 
+        if (avg1 && avg2) {
+        const annual = ((parseFloat(avg1) * 0.7 + parseFloat(avg2) * 0.3) ).toFixed(2);
+        document.getElementById("finalResult").innerText = "Final Annual Average: " + annual;
+        localStorage.setItem("finalAverage", annual);
+        }
     }
 
     window.onload = loadSavedValues;
