@@ -78,8 +78,18 @@
         document.getElementById(`moy${subject}`).innerText = moy;
         localStorage.setItem(`moy${subject}`, moy);
 
-        const unitWeight = (subject.includes("ENG") || subject.includes("Extra-info") ) ? 2 : 3;
-        totalWeighted += parseFloat(moy) * unitWeight;
+let unitWeight = 3;
+
+if (subject.includes("PFE")) {
+  unitWeight = 4;
+} else if (
+  subject.includes("ENG") ||
+  subject.includes("Extra-info") ||
+  subject.includes("Option1") ||
+  subject.includes("Option2")
+) {
+  unitWeight = 2;
+}        totalWeighted += parseFloat(moy) * unitWeight;
         totalUnits += unitWeight;
 
         // Save inputs
