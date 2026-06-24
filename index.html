@@ -98,7 +98,7 @@
       const avg1 = parseFloat(localStorage.getItem("finalAverage1") || 0);
       const avg2 = parseFloat(localStorage.getItem("finalAverage2") || 0);
       if (avg1 && avg2) {
-        const annual = ((avg1 + avg2) / 2).toFixed(2);
+        const annual = ((avg1 * 0.7 + avg2 * 0.3)).toFixed(2);
         document.getElementById("finalResult").innerText = "Final Annual Average: " + annual;
         localStorage.setItem("finalAverage", annual);
       }
@@ -127,19 +127,10 @@
       if (avg1 < 10) document.getElementById("advice1").innerText = " Zyer Ro7ek fel PFE Bro";
       const avg2 = localStorage.getItem("finalAverage2");
       if (avg2) document.getElementById("finalResult2").innerText = "Final Semester Average: " + avg2;
-
-      if(tableId === 1){
       if (avg1 && avg2) {
         const annual = ((parseFloat(avg1) + parseFloat(avg2)) / 2).toFixed(2);
         document.getElementById("finalResult").innerText = "Final Annual Average: " + annual;
         localStorage.setItem("finalAverage", annual);
-      }}
-      else{ 
-        if (avg1 && avg2) {
-        const annual = ((parseFloat(avg1) * 0.7 + parseFloat(avg2) * 0.3) ).toFixed(2);
-        document.getElementById("finalResult").innerText = "Final Annual Average: " + annual;
-        localStorage.setItem("finalAverage", annual);
-        }
       }
     }
 
